@@ -1,0 +1,19 @@
+/**
+*  StrongTypedCSS plugin for Publish
+*  Copyright (c) Mikhail Medvedev 2021
+*  MIT license, see LICENSE file for details
+**/
+
+.testButton {
+	border: none !important;
+}
+.testButton, .testImage {
+	border: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	.testButton, .testImage {
+		color: #ddd;
+		background-color: #222 !important;
+	}
+}
