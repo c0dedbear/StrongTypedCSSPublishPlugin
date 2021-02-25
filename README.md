@@ -1,6 +1,6 @@
 # StrongTypedCSSPublishPlugin
 
-[![Test](https://github.com/c0dedbear/StrongTypedCSSPublishPlugin/actions/workflows/test.yml/badge.svg)](https://github.com/c0dedbear/StrongTypedCSSPublishPlugin/actions/workflows/test.yml)
+[![Tests](https://github.com/c0dedbear/StrongTypedCSSPublishPlugin/actions/workflows/tests.yml/badge.svg)](https://github.com/c0dedbear/StrongTypedCSSPublishPlugin/actions/workflows/tests.yml)
 ![Swift 5.3](https://img.shields.io/badge/Swift-5.3-orange.svg)<a href="https://swift.org/package-manager">
 <img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat" alt="Swift Package Manager" />
 </a>![Mac](https://img.shields.io/badge/platforms-mac-brightgreen.svg?style=flat)<a href="https://github.com/JohnSundell/Publish">
