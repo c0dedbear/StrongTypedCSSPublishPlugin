@@ -24,12 +24,13 @@ Add the package to your SPM dependencies.
 ```swift
 import StrongTypedCSSPublishPlugin
 ...
+
 enum CSS: String, CaseIterable {
 	case container
 	case myPost = "my-post"
-  case marginLeft = "margin-left"
-...
+	case marginLeft = "margin-left"
 }
+
 extension CSS: StrongTypeCSS {
 	var classDescription: String { "CSS" }
 }
@@ -37,8 +38,8 @@ extension CSS: StrongTypeCSS {
 enum CSSAnimation: String, CaseIterable {
 	case fadeIn
 	case fadeOut
-...
 }
+
 extension CSSAnimation: StrongTypeCSS {
 	var classDescription: String { "CSSAnimation" }
 }
@@ -48,15 +49,12 @@ extension CSSAnimation: StrongTypeCSS {
 ```swift
 import StrongTypedCSSPublishPlugin
 ...
+
 try YourSite().publish(
 	withTheme: .foundation,
-	additionalSteps: [
-		.addCustomPages(),
-...
-	],
 	plugins: [
-		.checkStrongTypeCSS(of: CSS.allCases + CSSAnimation.allCases), // this is it
-		.compileSass(sassFilePath: "Resources/css/styles.scss", cssFilePath: "styles.css"),
+		.checkStrongTypeCSS(of: CSS.allCases + CSSAnimation.allCases),
+		...
 	]
 )
 ```
@@ -65,7 +63,7 @@ Note that if your css files not placed  in the **"Resources/css"**, you must cha
 3.  Done! Use it in the **.class** Node context like this:
 ```swift
 // Note that you don't need import plugin in places where you build your HTML
-...
+
 func makePageHTML(for page: Page, context: PublishingContext<Site>) throws -> HTML {
 	HTML(
 		.lang(context.site.language),
@@ -77,13 +75,13 @@ func makePageHTML(for page: Page, context: PublishingContext<Site>) throws -> HT
 				.class(CSS.container),
 				.p(
 				// When you need a few classes, just put them together separated with comma
-				.class(CSS.myPost, CSS.marginLeft),
-				"Sample text"
-				 ),
-        .button(
-          .class(CSSAnimation.fadeIn),
-          .text("Tap me")
-        )
+					.class(CSS.myPost, CSS.marginLeft),
+					"Sample text"
+				  ),
+				 .button(
+				 .class(CSSAnimation.fadeIn),
+				 .text("Tap me")
+				)
 			)
 		)
 	)
@@ -91,7 +89,8 @@ func makePageHTML(for page: Page, context: PublishingContext<Site>) throws -> HT
 ```
 
 ### How it works?
-If **rawValue** of **StrongTypeCSS-conformed** enum will not be found in stylesheet files contents - compiler will throw an error (with some description), and then interrupt execution.
+Plugin search match between each enum case and stylesheet files contents.  If **rawValue** of **StrongTypeCSS-conformed** enum will not be found in stylesheet files contents - compiler will throw an error (with some description), and then interrupt execution.
+
 Types of errors:
 
 ```swift
@@ -104,7 +103,5 @@ Types of errors:
 // Enum case not found among your stylesheet files
 "🔴 '\($0.classDescription).\($0.rawValue)' not found in files \(files.names()) contents. Please check it's name or add it in stylesheets")
 ```
-
 # Author
 <img src="authorlogo.png" alt="logo"/> Mikhail Medvedev | http://bearlogs.ru
-
