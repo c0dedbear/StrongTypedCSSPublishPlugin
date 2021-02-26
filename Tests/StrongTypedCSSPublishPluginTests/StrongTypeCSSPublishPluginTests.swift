@@ -73,6 +73,6 @@ extension Folder {
 	}
 
 	private static func createTestsFolder() throws -> Self {
-		try Folder.temporary.createSubfolderIfNeeded(at: "VerifyResourcesExistPublishPluginTests")
+		try Folder.temporary.createSubfolderIfNeeded(at: "StrongTypedCSSPublishPluginTests")
 	}
 }
