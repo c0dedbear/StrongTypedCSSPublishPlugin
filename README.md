@@ -104,4 +104,4 @@ Types of errors:
 "🔴 '\($0.classDescription).\($0.rawValue)' not found in files \(files.names()) contents. Please check it's name or add it in stylesheets")
 ```
 # Author
-<img src="authorlogo.png" alt="logo"/> Mikhail Medvedev | http://bearlogs.ru
+<img src="authorlogo.png" alt="logo"/> Mikhail Medvedev | https://bearlogs.ru
