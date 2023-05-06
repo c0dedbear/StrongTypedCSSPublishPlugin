@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 
 /**
 *  StrongTypedCSS plugin for Publish
@@ -10,6 +10,7 @@ import PackageDescription
 
 let package = Package(
     name: "StrongTypedCSSPublishPlugin",
+    platforms: [.macOS(.v12)],
     products: [
         .library(
             name: "StrongTypedCSSPublishPlugin",
@@ -21,7 +22,7 @@ let package = Package(
     targets: [
         .target(
             name: "StrongTypedCSSPublishPlugin",
-            dependencies: ["Publish"]),
+            dependencies: [.product(name: "Publish", package: "publish")]),
         .testTarget(
             name: "StrongTypedCSSPublishPluginTests",
             dependencies: ["StrongTypedCSSPublishPlugin"]),
